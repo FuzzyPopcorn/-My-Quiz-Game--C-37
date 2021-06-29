@@ -33,21 +33,37 @@ class Quiz {
     question.hide();
     //write code to change the background color here
     background("pink");
-    //write code to show a heading for showing the result of Quiz
-    textSize(30)
-    text("Result of the Quiz", 360, 40)
     //call getContestantInfo( ) here
   Contestant.getPlayerInfo();
     //write condition to check if contestantInfor is not undefined
-    if(allPlayers !== undefined){
+    if(allContestants !== undefined){
+    var displayPosition = 250;
+    //write code to show a heading for showing the result of Quiz
+    textSize(45)
+    text("Result of the Quiz", 360, 40)
+
+
       //write code to add a note here
       fill("Blue")
-      textSize(20);
+      textSize(28);
       text("*NOTE:Contestant who answered correct are hightlighted in green color!", 130, 230)
+    
+    //write code to highlight contest who answered correctly
+    for(var plr in allContestants){
+      var correctAns = "2";
+      if(correctAns === allContestants[plr].answer)
+      fill("Green")
+      else
+      fill("red")
+
+      displayPosition += 30;
+      textSize(25);
+      text(allContestants[plr].name + ": " + allContestants[plr].answer, 150, displayPosition);
+    }
     }
 
-    //write code to highlight contest who answered correctly
     
+  
   }
 
 }
